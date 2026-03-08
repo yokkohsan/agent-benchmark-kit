@@ -93,12 +93,6 @@ The benchmark should remain useful even when:
 
 ## Planned structure
 
-tasks/
-results/
-schemas/
-scripts/
-docs/
-
 The basic idea is:
 
 - `tasks/` → benchmark task definitions
@@ -206,4 +200,4 @@ The immediate priority is:
 ## License
 
 This repository is released under the MIT License.  
-See the `LICENSE` file for details.
+See the [LICENSE](LICENSE) file for details.
