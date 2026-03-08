@@ -1,0 +1,66 @@
+version: "0.1"
+task:
+  id: "template_001"
+  title: "Short human-readable task title"
+  category: "web"
+  summary: >
+    One-sentence summary of what this benchmark task is intended to test.
+
+target:
+  system_type: "agent"
+  notes: >
+    Optional notes about the intended target system.
+    Example: mobile agent, tool-using chat agent, device-integrated agent.
+
+instruction:
+  user_prompt: |
+    Write the exact instruction that should be given to the agent here.
+
+context:
+  prerequisites: []
+  inputs: []
+  allowed_tools: []
+  forbidden_tools: []
+  assumptions: []
+  environment_notes: []
+
+execution:
+  mode: "manual"
+  continue_on_error: false
+  max_attempts: 1
+  timeout_seconds: 300
+
+success_criteria:
+  required:
+    - "Describe the minimum condition that must be satisfied."
+  optional: []
+  forbidden:
+    - "Describe a clearly disallowed outcome."
+  verification_notes: |
+    Write how a human evaluator should verify success.
+
+scoring:
+  method: "pass_fail"
+  pass_conditions:
+    - "All required conditions are satisfied."
+    - "No forbidden condition is triggered."
+  fail_conditions:
+    - "The task goal is not achieved."
+    - "The result contains a major factual or procedural error."
+
+reporting:
+  record_raw_output: true
+  record_notes: true
+  record_time_to_success: true
+  record_retry_count: true
+
+metadata:
+  difficulty: "easy"
+  brain_dependent: true
+  system_dependent: true
+  tags: []
+  author: ""
+  status: "draft"
+  created_at: "YYYY-MM-DD"
+  updated_at: "YYYY-MM-DD"
+  
