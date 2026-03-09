@@ -1,0 +1,83 @@
+version: "0.1"
+
+task:
+  id: "web_001"
+  title: "Find official source and summarize"
+  category: "web"
+  summary: >
+    Evaluates whether the agent can find an official product source and produce
+    a short accurate summary without relying on unofficial references.
+
+target:
+  system_type: "agent"
+  notes: >
+    Intended for tool-using agents that can access the web or other online
+    information sources in a real execution environment.
+
+instruction:
+  user_prompt: |
+    Find the official website for M5Stack CoreS3 and summarize what the product is.
+
+context:
+  prerequisites: []
+  inputs: []
+  allowed_tools: []
+  forbidden_tools: []
+  assumptions:
+    - "The execution environment has some way to access public web information."
+  environment_notes:
+    - "Task execution is manual or human-assisted."
+    - "The evaluator may inspect the source used by the agent."
+
+execution:
+  mode: "manual"
+  continue_on_error: false
+  max_attempts: 1
+  timeout_seconds: 300
+
+success_criteria:
+  required:
+    - "Uses an official M5Stack source for the product information."
+    - "Identifies M5Stack CoreS3 correctly as a product from M5Stack."
+    - "Provides a short summary of what the product is."
+    - "Summary is materially consistent with the official source."
+  optional:
+    - "Mentions one or two accurate product details from the official source."
+  forbidden:
+    - "Relies only on unofficial sources."
+    - "Includes a major hallucination about the product."
+    - "Claims task completion without identifying an official source."
+  verification_notes: |
+    A human evaluator should confirm that the source used is an official
+    M5Stack page for CoreS3 or the M5Stack official site, and that the summary
+    matches the source at a high level. Minor wording differences are allowed,
+    but incorrect product identity or invented capabilities should fail.
+
+scoring:
+  method: "pass_fail"
+  pass_conditions:
+    - "All required conditions are satisfied."
+    - "No forbidden condition is triggered."
+  fail_conditions:
+    - "The agent does not identify an official source."
+    - "The summary is materially inaccurate or misleading."
+
+reporting:
+  record_raw_output: true
+  record_notes: true
+  record_time_to_success: true
+  record_retry_count: true
+
+metadata:
+  difficulty: "easy"
+  brain_dependent: true
+  system_dependent: true
+  tags:
+    - "official-source"
+    - "web-search"
+    - "summarization"
+    - "hallucination-resistance"
+  author: "Codex"
+  status: "draft"
+  created_at: "2026-03-10"
+  updated_at: "2026-03-10"
