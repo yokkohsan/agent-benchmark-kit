@@ -1,0 +1,16 @@
+version: "0.1"
+
+benchmark:
+  id: "core_suite"
+  description: "Core benchmark tasks for autonomous agents"
+  benchmark_version: "0.1"
+
+execution:
+  mode: "manual"
+  continue_on_error: true
+
+tasks:
+  - web_001
+  - file_001
+  - image_001
+  - device_001
