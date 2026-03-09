@@ -21,7 +21,8 @@ instruction:
 context:
   prerequisites: []
   inputs: []
-  allowed_tools: []
+  allowed_tools:
+    - "web"
   forbidden_tools: []
   assumptions:
     - "The execution environment has some way to access public web information."
